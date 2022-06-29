@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>问题不大</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js" defer></script>
+</head>
+
+<body onload="myFunction()">
+    <div id="loading"></div>
+    <div class="cont">
+        <div class="one">
+            <h1>🌦️ 舒克天气 ☔️</h1>
+        </div>
+    </div>
+    <div class="two">
+        <div class="card">
+            <div class="search">
+                <input type="text" class="search-bar" placeholder="Search" hidden />
+                <button hidden></button>
+                <img src="pic/avatar.jpeg" style="width: 180px" />
+            </div>
+            <div class="weather loading">
+                <h2 class="city"></h2>
+                <h1 class="temp"></h1>
+                <div class="flex">
+                    <img src="" alt="" class="icon" />
+                    <div class="description"></div>
+                </div>
+                <div class="other">
+                    <div class="humidity"></div>
+                    <div class="wind"></div>
+                    <div id="currentTime"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="three">
+        <div class="name"><a href="">Miao</a></div>
+    </div>
+    <script>
+        let preloader = document.getElementById("loading");
+
+        function myFunction() {
+            preloader.style.display = "none";
+        }
+
+        let today = new Date();
+        let option = {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+        };
+
+        let currentTime = document.getElementById("currentTime");
+        currentTime.innerText = "日期: " + today.toLocaleString('zh-CN', option);
+
+    </script>
+    <script type="text/javascript" src="js/vanilla-tilt.js"></script>
+    <script type="text/javascript">
+        VanillaTilt.init(document.querySelector(".card"), {
+            max: 15,
+            glare: true,
+            reverse: true,
+            "max-glare": 0.5,
+            speed: 400,
+        });
+        VanillaTilt.init(document.querySelectorAll(".card"));
+    </script>
+</body>
+
+</html>
